@@ -30,7 +30,7 @@ sudo apt -y install curl tar
 `sudo hostnamectl set-hostname wazuh-server`
 
 c) Run the official Wazuh all-in-one installer
-This installs Wazuh Server + Indexer + Dashboard on the same host using the assistant:\
+This installs Wazuh Server + Indexer + Dashboard on the same host using the assistant:
 
 `
 curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh
@@ -46,11 +46,11 @@ https://<your-vm-public-ip>
 
 Log in with:\
 Username: admin\
-Password: the one printed after the Wazuh got installed in Azure terminal\
+Password: the one printed after the Wazuh got installed in Azure terminal
 
 Note: Must be using Admin PC only
 
-<img width="774" height="515" alt="image" src="https://github.com/user-attachments/assets/b0d7236e-ae87-41b5-9e18-878a119cb2aa" />\
+<img width="774" height="515" alt="image" src="https://github.com/user-attachments/assets/b0d7236e-ae87-41b5-9e18-878a119cb2aa" />
 
 So, the dashboard for Wazuh will be displayed:
 <img width="1917" height="858" alt="image" src="https://github.com/user-attachments/assets/22a9dd3b-8f01-473d-a899-40767772ff55" />
