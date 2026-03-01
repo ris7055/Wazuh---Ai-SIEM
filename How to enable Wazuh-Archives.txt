@@ -1,0 +1,33 @@
+Linking the logs to analyze:
+
+
+# Enter admin mod:
+sudo su -
+
+tail /var/ossec/logs/archives/archives.log
+
+# Edit the archives file and enable it "yes":
+vim /var/ossec/etc/ossec.conf
+
+<logall>yes</logall>
+<logall_json>yes</logall_json>
+
+# Now restart the wazuh-manager:
+systemctl restart wazuh-manager
+
+# Edit the filebeat for visualization:
+vim /etc/filebeat/filebeat.yml
+
+# Check for filebeat.modules:
+
+archives:
+	enabled: true
+
+# Restart the filebeat:
+systemctl restart filebeat
+
+Then GOTO Wazuh-Server → Dashboard Management → Index Patterns → Create Index Patterns → Search (wazuh-archives*)→ Next step → Timefield(@timestamp) → Create Index Patterns
+
+Now, the log files will be displayed in the archives.Thanks!
+
+
