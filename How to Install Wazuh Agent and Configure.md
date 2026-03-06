@@ -200,6 +200,9 @@ File integrity monitoring started
 ```
 ### Verify Connection on Wazuh :
 
+Verify Logs: in .json format
+`sudo tail -f /var/ossec/logs/alerts/alerts.json`
+
 Check agents in Azure VM run:
 `sudo /var/ossec/bin/agent_control -l`
 
