@@ -112,15 +112,14 @@ sudo systemctl start wazuh-agent`
 
 Check status:
 
-`sudo systemctl status wazuh-agent
-Step 5 — Approve Agent (If Needed)`
+`sudo systemctl status wazuh-agent`
 
 On Wazuh server:
 
 `sudo /var/ossec/bin/manage_agents`\
 Add agent manually if it doesn't auto-register.
 
-Step 6 — Confirm It Appears in Dashboard
+Step 4 — Confirm It Appears in Dashboard
 
 Go to:\
 Dashboard → Agents
@@ -191,7 +190,7 @@ Verify Agent Logs
 
 Check logs:
 
-Get-Content "C:\Program Files (x86)\ossec-agent\ossec.log" -Tail 20
+`Get-Content "C:\Program Files (x86)\ossec-agent\ossec.log" -Tail 20`
 
 Expected messages:
 ```
@@ -202,7 +201,10 @@ File integrity monitoring started
 Verify Connection on Wazuh Manager
 
 On Azure VM run:
-sudo /var/ossec/bin/agent_control -l
+`sudo /var/ossec/bin/agent_control -l`
+
+Check agents with names: example
+`sudo grep "Lenovo-W11" /var/ossec/logs/alerts/alerts.log`
 
 Expected output:
 `ID: 001, Name: Lenovo-W11, IP: xxx.xxx.xxx.xxx, Active`
