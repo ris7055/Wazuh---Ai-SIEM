@@ -198,13 +198,17 @@ Connected to server
 Sending keepalive
 File integrity monitoring started
 ```
-Verify Connection on Wazuh Manager
+### Verify Connection on Wazuh :
 
-On Azure VM run:
+Check agents in Azure VM run:
 `sudo /var/ossec/bin/agent_control -l`
 
 Check agents with names: example
 `sudo grep "Lenovo-W11" /var/ossec/logs/alerts/alerts.log`
+
+Verify Log Transfer:
+`sudo /var/ossec/bin/agent_control -i <agent-id>`
+
 
 Expected output:
 `ID: 001, Name: Lenovo-W11, IP: xxx.xxx.xxx.xxx, Active`
