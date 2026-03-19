@@ -111,10 +111,11 @@ To automatically initiate the Wazuh AI-SOC reporting workflow on a scheduled bas
 
  Step 2: Configure Wazuh Indexer HTTP Request
 - Added an HTTP Request node in n8n to connect with the Wazuh Indexer.
-- Set the request method to POST for querying alert data.
-- Configured the Wazuh Indexer search URL to retrieve security events from the alert index.
-- Applied Basic Authentication credentials to allow secure access to the indexer.
-- Enabled the request body option to send the alert query in JSON format as expression.
+- Set the request method to POST for querying alert data. Mode: Fixed
+- Configured the Wazuh Indexer search URL to retrieve security events from the alert index. Mode: Fixed
+- Applied Basic Authentication credentials to allow secure access to the indexer. Mode: Fixed
+- Enabled the request body option to send the alert query in JSON format. Mode: Expression.
+- The body content type : Json (fixed) and Specify body: using Json(fixed)
 - Executed the node to verify successful connection and alert retrieval from Wazuh.
 
 Key Role: \
@@ -122,8 +123,11 @@ To fetch security alerts and event data from the Wazuh Indexer so they can be pr
 
 <img width="1854" height="749" alt="image" src="https://github.com/user-attachments/assets/172298cb-e943-433f-9dab-3439ec499505" />
 
-json body input:
-```
+<details>
+  <summary><strong>View JSON Body Input</strong></summary>
+
+```json
+
 {
   "size": 0,
   "query": {
@@ -204,5 +208,7 @@ json body input:
     }
   }
 }
+    
 ```
+</details>
 
