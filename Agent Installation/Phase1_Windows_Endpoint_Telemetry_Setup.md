@@ -390,19 +390,8 @@ GET wazuh-alerts-*/_search
 
 ---
 
-## Part E — Saved Threat Hunt Queries
 
-Save these in **Discover → Save** to build your Threat Hunt library:
-
-| Query ID | MITRE Technique | Description | Filter |
-|---|---|---|---|
-| `TH-005` | T1105 File Creation | Sysmon EID 11 | `data.win.system.eventID: 11` + agent filter |
-| `TH-006` | T1071 Network Connection | Windows Firewall DROP | `rule.id: 100301` + agent filter |
-| `TH-007` | T1110 Failed Logon | Windows EID 4625 | `data.win.system.eventID: 4625` + agent filter |
-
----
-
-## Part F — Final Verification Checklist
+## Part E — Final Verification Checklist
 
 | Check | Command | Expected Result |
 |---|---|---|
@@ -447,21 +436,6 @@ grep -i "pfirewall" /var/ossec/logs/archives/archives.log | tail -20
 grep -A 3 "AGENT-NAME.*pfirewall" /var/ossec/logs/alerts/alerts.log | grep "Rule:" | sort | uniq -c
 ```
 
-### OpenSearch memory circuit breaker errors
-```bash
-# Apply circuit breaker limits
-curl -k -u admin:PASSWORD \
-  -X PUT "https://127.0.0.1:9200/_cluster/settings" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "persistent": {
-      "indices.breaker.total.limit": "85%",
-      "indices.breaker.request.limit": "60%",
-      "indices.breaker.fielddata.limit": "40%"
-    }
-  }'
-```
-
 ---
 
 ## Notes
@@ -473,5 +447,3 @@ curl -k -u admin:PASSWORD \
 - Repeat Parts A and B for each new Windows endpoint. Parts C decoder/rules only need to be configured once on the Wazuh server.
 
 ---
-
-*Part of the MSSP Threat Hunting Roadmap — Wazuh SIEM Platform*
